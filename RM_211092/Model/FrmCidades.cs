@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RM_211092
+namespace RM_211092.Model
 {
-    public partial class Form1 : Form
+    public partial class FrmCidades : Form
     {
-        public Form1()
+        public FrmCidades()
         {
             InitializeComponent();
         }
