@@ -1,6 +1,6 @@
-﻿namespace RM_211092.Model
+﻿namespace RM_211092.Views
 {
-    partial class FrmCidades
+    partial class FrmConsultaVendaProd
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FrmCidades";
+            this.Text = "FrmConsultaVendaProd";
         }
 
         #endregion

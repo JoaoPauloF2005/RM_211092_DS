@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RM_211092
+namespace RM_211092.Views
 {
-    public partial class Form1 : Form
+    public partial class FrmClientes : Form
     {
-        public Form1()
+        public FrmClientes()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            Banco.CriarBanco();
         }
     }
 }

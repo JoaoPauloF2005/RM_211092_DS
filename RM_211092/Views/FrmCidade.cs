@@ -8,13 +8,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RM_211092.Model
+namespace RM_211092.Views
 {
-    public partial class FrmCidades : Form
+    public partial class FrmCidade : Form
     {
-        public FrmCidades()
+        public FrmCidade()
         {
             InitializeComponent();
         }
+
+      
+
+     
     }
 }
