@@ -3,7 +3,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Forms;
 
-namespace RM_211092
+namespace RM_211092.Models
 {
     public class Cidade
     {
@@ -13,6 +13,8 @@ namespace RM_211092
 
         public string uf { get; set; }
 
+    
+
 
 
         public void Incluir()
@@ -20,7 +22,7 @@ namespace RM_211092
             try
             {
                 Banco.AbrirConexao();
-                Banco.Comando = new MySqlCommand("INSERT INTO Cidades (nome, uf) VALUES (@nome, @uf)", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("INSERT INTO cidades (nome, uf) VALUES (@nome, @uf)", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
                 Banco.Comando.Parameters.AddWithValue("@uf", uf);
                 Banco.Comando.Parameters.AddWithValue("@id", id);
@@ -38,7 +40,7 @@ namespace RM_211092
             try
             {
                 Banco.AbrirConexao();
-                Banco.Comando = new MySqlCommand("Update cidades set nome = @nome, uf = @uf where id = @id", Banco.Conexao);
+                Banco.Comando = new MySqlCommand("Update Cidades set nome = @nome, uf = @uf where id = @id", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
                 Banco.Comando.Parameters.AddWithValue("@uf", uf);
                 Banco.Comando.Parameters.AddWithValue("@id", id);
