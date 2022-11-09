@@ -106,6 +106,7 @@
       <DependentUpon>FrmMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\VendaCab.cs" />
     <Compile Include="Models\VendaDet.cs" />
@@ -141,6 +142,12 @@
     <Compile Include="Views\FrmConsultaVendaProd.Designer.cs">
       <DependentUpon>FrmConsultaVendaProd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\FrmMarca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmMarca.Designer.cs">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\FrmVendas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +168,9 @@
     </Compile>
     <EmbeddedResource Include="Views\FrmCidade.resx">
       <DependentUpon>FrmCidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\FrmMarca.resx">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

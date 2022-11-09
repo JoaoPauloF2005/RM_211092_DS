@@ -30,5 +30,13 @@ namespace RM_211092
             FrmCidade form = new FrmCidade();
             form.Show();
         }
+
+        
+
+        private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMarca form = new FrmMarca();
+            form.Show();
+        }
     }
 }

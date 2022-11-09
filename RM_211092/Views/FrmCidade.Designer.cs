@@ -199,6 +199,7 @@
             this.btnPesquisa.Size = new System.Drawing.Size(42, 36);
             this.btnPesquisa.TabIndex = 14;
             this.btnPesquisa.UseVisualStyleBackColor = true;
+            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
             // 
             // FrmCidade
             // 

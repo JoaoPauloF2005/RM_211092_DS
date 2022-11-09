@@ -57,6 +57,11 @@ namespace RM_211092
                                            "uf char(02))", Conexao);
                 Comando.ExecuteNonQuery();
 
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Marcas" +
+                                           "(id integer auto_increment primary key, " +
+                                           "marca char(20))", Conexao);
+                Comando.ExecuteNonQuery();
+
                 FecharConexao();
             }
             catch (Exception e)
