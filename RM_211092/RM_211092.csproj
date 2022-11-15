@@ -98,6 +98,7 @@
     <Compile Include="Banco.cs" />
     <Compile Include="Consulta.cs" />
     <Compile Include="Models\Caixa.cs" />
+    <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cidade.cs" />
     <Compile Include="FrmMenu.cs">
       <SubType>Form</SubType>
@@ -117,6 +118,12 @@
     </Compile>
     <Compile Include="Views\FrmCaixa.Designer.cs">
       <DependentUpon>FrmCaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FrmCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\FrmCategoria.Designer.cs">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\FrmCidade.cs">
       <SubType>Form</SubType>
@@ -166,6 +173,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\FrmCategoria.resx">
+      <DependentUpon>FrmCategoria.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\FrmCidade.resx">
       <DependentUpon>FrmCidade.cs</DependentUpon>
     </EmbeddedResource>
