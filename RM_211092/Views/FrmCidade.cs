@@ -115,10 +115,6 @@ namespace RM_211092.Views
             carregarGrid("");
         }
 
-        private void btnPesquisa_Click(object sender, EventArgs e)
-        {
-            carregarGrid(txtPesquisa.Text);
-        }
-
+        
     }
 }

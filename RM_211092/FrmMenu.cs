@@ -44,5 +44,11 @@ namespace RM_211092
             FrmCategoria form = new FrmCategoria();
             form.Show();
         }
+
+        private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmClientes form = new FrmClientes();
+            form.Show();
+        }
     }
 }

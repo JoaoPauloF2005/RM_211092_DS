@@ -43,7 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.dgvCidades = new System.Windows.Forms.DataGridView();
-            this.btnPesquisa = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCidades)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,15 +191,14 @@
             this.dgvCidades.TabIndex = 13;
             this.dgvCidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCidade_CellClick);
             // 
-            // btnPesquisa
+            // btnConsultar
             // 
-            this.btnPesquisa.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisa.Image")));
-            this.btnPesquisa.Location = new System.Drawing.Point(492, 241);
-            this.btnPesquisa.Name = "btnPesquisa";
-            this.btnPesquisa.Size = new System.Drawing.Size(42, 36);
-            this.btnPesquisa.TabIndex = 14;
-            this.btnPesquisa.UseVisualStyleBackColor = true;
-            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
+            this.btnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultar.Image")));
+            this.btnConsultar.Location = new System.Drawing.Point(492, 241);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(42, 36);
+            this.btnConsultar.TabIndex = 14;
+            this.btnConsultar.UseVisualStyleBackColor = true;
             // 
             // FrmCidade
             // 
@@ -207,7 +206,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.btnPesquisa);
+            this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.dgvCidades);
             this.Controls.Add(this.txtPesquisa);
             this.Controls.Add(this.label4);
@@ -247,6 +246,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.DataGridView dgvCidades;
-        private System.Windows.Forms.Button btnPesquisa;
+        private System.Windows.Forms.Button btnConsultar;
     }
 }

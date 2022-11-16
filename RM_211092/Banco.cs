@@ -20,7 +20,7 @@ namespace RM_211092
         {
             try
             {
-                Conexao = new MySqlConnection("Server=localhost;port=3306;uid=root;pwd=etecjau");
+                Conexao = new MySqlConnection("Server=localhost;port=3307;uid=root;pwd=etecjau");
 
                 Conexao.Open();
             }
@@ -72,6 +72,18 @@ namespace RM_211092
                                           " id INT AUTO_INCREMENT," +
                                           " descricao VARCHAR(150)," +
                                           " PRIMARY KEY (id));", Conexao);
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Clientes" +
+                                            "(id integer auto_increment primary key," +
+                                            "nome char(40), " +
+                                            "idCidade integer," +
+                                            "dataNasc date," +
+                                            "renda decimal(10,2), " +
+                                            "cpf char(14)," +
+                                            "foto varchar(100)," +
+                                            "venda boolean)", Conexao);
+
                 Comando.ExecuteNonQuery();
 
                 FecharConexao();
