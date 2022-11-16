@@ -55,7 +55,6 @@
             this.txtRenda = new System.Windows.Forms.TextBox();
             this.picFoto = new System.Windows.Forms.PictureBox();
             this.ofdArquivo = new System.Windows.Forms.OpenFileDialog();
-            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +77,7 @@
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.Size = new System.Drawing.Size(603, 150);
             this.dgvClientes.TabIndex = 28;
-            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
+            this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvClientes_CellClick);
             // 
             // txtPesquisa
             // 
@@ -295,16 +294,14 @@
             // 
             // picFoto
             // 
+            this.picFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picFoto.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.picFoto.Location = new System.Drawing.Point(593, 17);
             this.picFoto.Name = "picFoto";
-            this.picFoto.Size = new System.Drawing.Size(183, 170);
+            this.picFoto.Size = new System.Drawing.Size(170, 212);
             this.picFoto.TabIndex = 41;
             this.picFoto.TabStop = false;
             this.picFoto.Click += new System.EventHandler(this.picFoto_Click);
-            // 
-            // openFileDialog2
-            // 
-            this.openFileDialog2.FileName = "openFileDialog2";
             // 
             // FrmClientes
             // 
@@ -374,6 +371,5 @@
         private System.Windows.Forms.TextBox txtRenda;
         private System.Windows.Forms.PictureBox picFoto;
         private System.Windows.Forms.OpenFileDialog ofdArquivo;
-        private System.Windows.Forms.OpenFileDialog openFileDialog2;
     }
 }

@@ -8,6 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RM_211092.Models;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+using System.IO;
+
 
 namespace RM_211092.Views
 {
@@ -78,6 +83,8 @@ namespace RM_211092.Views
             ofdArquivo.FileName = "";
             ofdArquivo.ShowDialog();
             picFoto.ImageLocation = ofdArquivo.FileName;
+
+
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)
@@ -100,7 +107,7 @@ namespace RM_211092.Views
             carregarGrid("");
         }
 
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvClientes.Rows.Count > 0)
             {
@@ -116,6 +123,7 @@ namespace RM_211092.Views
 
             }
         }
+
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
@@ -172,5 +180,7 @@ namespace RM_211092.Views
         {
             Close();
         }
+
+        
     }
 }
