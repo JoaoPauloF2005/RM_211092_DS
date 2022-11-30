@@ -50,5 +50,11 @@ namespace RM_211092
             FrmClientes form = new FrmClientes();
             form.Show();
         }
+
+        private void produtoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmProduto form = new FrmProduto();
+            form.Show();
+        }
     }
 }
