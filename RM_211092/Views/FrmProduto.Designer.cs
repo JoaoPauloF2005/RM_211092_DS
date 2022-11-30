@@ -52,6 +52,7 @@
             this.btnIncluir = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtDescricao = new System.Windows.Forms.TextBox();
+            this.ofdArquivo = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.picFotoProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProduto)).BeginInit();
             this.SuspendLayout();
@@ -105,6 +106,7 @@
             this.cboMarca.Name = "cboMarca";
             this.cboMarca.Size = new System.Drawing.Size(445, 21);
             this.cboMarca.TabIndex = 85;
+            this.cboMarca.SelectedIndexChanged += new System.EventHandler(this.cboMarca_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -124,6 +126,7 @@
             this.picFotoProduto.Size = new System.Drawing.Size(170, 212);
             this.picFotoProduto.TabIndex = 83;
             this.picFotoProduto.TabStop = false;
+            this.picFotoProduto.Click += new System.EventHandler(this.picFotoProduto_Click);
             // 
             // txtValorVenda
             // 
@@ -148,6 +151,7 @@
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(445, 21);
             this.cboCategoria.TabIndex = 80;
+            this.cboCategoria.SelectedIndexChanged += new System.EventHandler(this.cboCategoria_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -176,6 +180,7 @@
             this.dgvProduto.Size = new System.Drawing.Size(603, 150);
             this.dgvProduto.TabIndex = 77;
             this.dgvProduto.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvProduto_CellClick);
+            this.dgvProduto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProduto_CellContentClick);
             // 
             // txtPesquisa
             // 
@@ -257,6 +262,7 @@
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // label2
             // 
@@ -336,5 +342,6 @@
         private System.Windows.Forms.Button btnIncluir;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtDescricao;
+        private System.Windows.Forms.OpenFileDialog ofdArquivo;
     }
 }
