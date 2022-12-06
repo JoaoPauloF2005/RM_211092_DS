@@ -51,9 +51,8 @@
             this.btnPesquisa.Location = new System.Drawing.Point(562, 241);
             this.btnPesquisa.Name = "btnPesquisa";
             this.btnPesquisa.Size = new System.Drawing.Size(42, 36);
-            this.btnPesquisa.TabIndex = 42;
+            this.btnPesquisa.TabIndex = 68;
             this.btnPesquisa.UseVisualStyleBackColor = true;
-            this.btnPesquisa.Click += new System.EventHandler(this.btnPesquisa_Click);
             // 
             // dgvCategoria
             // 
@@ -62,7 +61,7 @@
             this.dgvCategoria.Location = new System.Drawing.Point(100, 283);
             this.dgvCategoria.Name = "dgvCategoria";
             this.dgvCategoria.Size = new System.Drawing.Size(603, 150);
-            this.dgvCategoria.TabIndex = 41;
+            this.dgvCategoria.TabIndex = 67;
             this.dgvCategoria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellContentClick);
             // 
             // txtPesquisa
@@ -70,7 +69,7 @@
             this.txtPesquisa.Location = new System.Drawing.Point(100, 250);
             this.txtPesquisa.Name = "txtPesquisa";
             this.txtPesquisa.Size = new System.Drawing.Size(445, 20);
-            this.txtPesquisa.TabIndex = 40;
+            this.txtPesquisa.TabIndex = 66;
             // 
             // label4
             // 
@@ -78,7 +77,7 @@
             this.label4.Location = new System.Drawing.Point(97, 230);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(164, 13);
-            this.label4.TabIndex = 39;
+            this.label4.TabIndex = 65;
             this.label4.Text = "Digite a descrição para pesquisa:";
             // 
             // btnFechar
@@ -89,7 +88,7 @@
             this.btnFechar.Location = new System.Drawing.Point(603, 163);
             this.btnFechar.Name = "btnFechar";
             this.btnFechar.Size = new System.Drawing.Size(100, 50);
-            this.btnFechar.TabIndex = 38;
+            this.btnFechar.TabIndex = 64;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFechar.UseVisualStyleBackColor = true;
@@ -103,7 +102,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(483, 163);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(100, 50);
-            this.btnExcluir.TabIndex = 37;
+            this.btnExcluir.TabIndex = 63;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.UseVisualStyleBackColor = true;
@@ -117,7 +116,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(349, 163);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(100, 50);
-            this.btnCancelar.TabIndex = 36;
+            this.btnCancelar.TabIndex = 62;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
@@ -131,7 +130,7 @@
             this.btnAlterar.Location = new System.Drawing.Point(221, 163);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(100, 49);
-            this.btnAlterar.TabIndex = 35;
+            this.btnAlterar.TabIndex = 61;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlterar.UseVisualStyleBackColor = true;
@@ -145,7 +144,7 @@
             this.btnIncluir.Location = new System.Drawing.Point(100, 163);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(100, 49);
-            this.btnIncluir.TabIndex = 34;
+            this.btnIncluir.TabIndex = 60;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIncluir.UseVisualStyleBackColor = true;
@@ -157,7 +156,7 @@
             this.label2.Location = new System.Drawing.Point(97, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
-            this.label2.TabIndex = 33;
+            this.label2.TabIndex = 59;
             this.label2.Text = "Descrição:";
             // 
             // txtDescricao
@@ -165,7 +164,7 @@
             this.txtDescricao.Location = new System.Drawing.Point(100, 99);
             this.txtDescricao.Name = "txtDescricao";
             this.txtDescricao.Size = new System.Drawing.Size(445, 20);
-            this.txtDescricao.TabIndex = 32;
+            this.txtDescricao.TabIndex = 58;
             // 
             // label1
             // 
@@ -173,7 +172,7 @@
             this.label1.Location = new System.Drawing.Point(97, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 31;
+            this.label1.TabIndex = 57;
             this.label1.Text = "Código:";
             // 
             // txtIDCategoria
@@ -181,7 +180,7 @@
             this.txtIDCategoria.Location = new System.Drawing.Point(100, 33);
             this.txtIDCategoria.Name = "txtIDCategoria";
             this.txtIDCategoria.Size = new System.Drawing.Size(100, 20);
-            this.txtIDCategoria.TabIndex = 30;
+            this.txtIDCategoria.TabIndex = 56;
             // 
             // FrmCategoria
             // 

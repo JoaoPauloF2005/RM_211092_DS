@@ -7,7 +7,7 @@ namespace RM_211092.Models
 {
     public class Categoria
     {
-        public int id { get; set; } 
+        public int id { get; set; }
         public string descricao { get; set; }
 
         public void Incluir()

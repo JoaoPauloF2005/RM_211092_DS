@@ -15,12 +15,11 @@ namespace RM_211092
 
         public static DataTable datTabela;
 
-
         public static void AbrirConexao()
         {
             try
             {
-                Conexao = new MySqlConnection("Server=localhost;port=3307;uid=root;pwd=etecjau");
+                Conexao = new MySqlConnection("server=localhost;port=3306;uid=root;pwd=etecjau");
 
                 Conexao.Open();
             }
@@ -45,57 +44,53 @@ namespace RM_211092
         {
             try
             {
+
                 AbrirConexao();
 
                 Comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS vendas; USE vendas", Conexao);
 
                 Comando.ExecuteNonQuery();
 
-
-
                 Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Cidades" +
-                                           "(id integer auto_increment primary key, " +
-                                           "nome char(40), " +
-                                           "uf char(02))", Conexao);
+                    "(id integer auto_increment primary key, " +
+                    "nome char(40), " +
+                    "uf char(02))", Conexao);
+
                 Comando.ExecuteNonQuery();
-
-
 
                 Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Marcas" +
-                                           "(id integer auto_increment primary key, " +
-                                           "marca char(20))", Conexao);
+                   "(id integer auto_increment primary key, " +
+                   "marca char(20))", Conexao);
+
                 Comando.ExecuteNonQuery();
-
-
 
                 Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS categoria (" +
-                                          " id INT AUTO_INCREMENT," +
-                                          " descricao VARCHAR(150)," +
-                                          " PRIMARY KEY (id));", Conexao);
+                                        " id INT AUTO_INCREMENT," +
+                                        " descricao VARCHAR(150)," +
+                                        " PRIMARY KEY (id));", Conexao);
                 Comando.ExecuteNonQuery();
 
-                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Clientes" +
-                                            "(id integer auto_increment primary key," +
-                                            "nome char(40), " +
-                                            "idCidade integer," +
-                                            "dataNasc date," +
-                                            "renda decimal(10,2), " +
-                                            "cpf char(14)," +
-                                            "foto varchar(100)," +
-                                            "venda boolean)", Conexao);
-
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Clientes (" +
+                                     "id integer auto_increment primary key, " +
+                                     "nome char(40), " +
+                                     "idCidade integer," +
+                                     "dataNasc date," +
+                                     "renda decimal(10,2), " +
+                                     "cpf char(14), " +
+                                     "foto varchar(100), " +
+                                     "venda boolean)", Conexao);
                 Comando.ExecuteNonQuery();
 
-                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Produtos" +
-                                            "(Id integer auto_increment primary key, " +
-                                             "descricao char(40), " +
-                                             "idCategoria integer, " +
-                                             "idMarca integer, " +
-                                             "estoque decimal(10,3), " +
-                                             "valorVenda decimal(10,2), " +
-                                             "foto varchar(100))", Conexao);
-
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Produtos " +
+                              "(Id integer auto_increment primary key, " +
+                              "descricao char(40), " +
+                              "idCategoria integer," +
+                              "idMarca integer," +
+                              "estoque decimal(10,3), " +
+                              "valorVenda decimal(10,2), " +
+                              "foto varchar(100))", Conexao);
                 Comando.ExecuteNonQuery();
+
 
                 FecharConexao();
             }

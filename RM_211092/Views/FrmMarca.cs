@@ -19,9 +19,9 @@ namespace RM_211092.Views
             InitializeComponent();
         }
 
-        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmMarca form =  new FrmMarca();
+            FrmMarca form = new FrmMarca();
             form.Show();
         }
 
@@ -29,19 +29,16 @@ namespace RM_211092.Views
         {
             txtIDMarca.Clear();
             txtMarca.Clear();
-          
             txtPesquisa.Clear();
         }
-
         void carregarGrid(string pesquisa)
         {
             c = new Marca();
             {
                 txtMarca.Text = pesquisa;
             };
-            dgvMarcas.DataSource = c.Consultar();
+            dgvMarca.DataSource = c.Consultar();
         }
-
         private void btnIncluir_Click(object sender, EventArgs e)
         {
             if (txtMarca.Text == String.Empty) return;
@@ -49,14 +46,14 @@ namespace RM_211092.Views
             c = new Marca()
             {
                 marca = txtMarca.Text,
-                
+
             };
             c.Incluir();
 
             LimpaControles();
             carregarGrid("");
-        }
 
+        }
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
@@ -79,6 +76,7 @@ namespace RM_211092.Views
             carregarGrid("");
         }
 
+
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             if (txtIDMarca.Text == "") return;
@@ -100,7 +98,11 @@ namespace RM_211092.Views
         private void btnFechar_Click(object sender, EventArgs e)
         {
             Close();
+        }
 
+        private void btnPesquisa_Click(object sender, EventArgs e)
+        {
+            carregarGrid(txtPesquisa.Text);
         }
 
         private void FrmMarca_Load(object sender, EventArgs e)
@@ -109,26 +111,15 @@ namespace RM_211092.Views
             carregarGrid("");
         }
 
-        private void dgvMarcas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvMarca_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             {
-                if (dgvMarcas.RowCount > 0)
+                if (dgvMarca.RowCount > 0)
                 {
-                    txtIDMarca.Text = dgvMarcas.CurrentRow.Cells["id"].Value.ToString();
-                    txtMarca.Text = dgvMarcas.CurrentRow.Cells["marca"].Value.ToString();
+                    txtIDMarca.Text = dgvMarca.CurrentRow.Cells["id"].Value.ToString();
+                    txtMarca.Text = dgvMarca.CurrentRow.Cells["marca"].Value.ToString();
                 }
             }
-        }
-
-        private void btnPesquisa_Click(object sender, EventArgs e)
-        {
-            carregarGrid(txtPesquisa.Text);
-
-        }
-
-        private void btnConsultar_Click(object sender, EventArgs e)
-        {
-            carregarGrid(txtPesquisa.Text);
         }
     }
 }

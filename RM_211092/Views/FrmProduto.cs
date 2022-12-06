@@ -18,90 +18,33 @@ namespace RM_211092.Views
 {
     public partial class FrmProduto : Form
     {
-        Categoria c;
-        Marca mr;
+        Categoria ca;
+        Marca m;
         Produto p;
+
         public FrmProduto()
         {
             InitializeComponent();
         }
 
-        private void produtoToolStripMenuItem_Click(object sender, EventArgs e)
+        void limpaControles()
         {
-            FrmProduto form = new FrmProduto();
-            form.Show();
-        }
-
-        void LimpaControles()
-        {
-            txtIDProduto.Clear();
+            txtID.Clear();
             txtDescricao.Clear();
             cboCategoria.SelectedIndex = -1;
             cboMarca.SelectedIndex = -1;
-            txtValorVenda.Clear();
+            txtValor.Clear();
             txtEstoque.Clear();
-            picFotoProduto.ImageLocation = "";
+            picFoto.ImageLocation = "";
         }
 
         void carregarGrid(string pesquisa)
         {
-            p = new Produto();
+            p = new Produto()
             {
-                txtDescricao.Text = pesquisa;
+                descricao = pesquisa
             };
-            dgvProduto.DataSource = mr.Consultar();
-        }
-
-        private void DgvProduto_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void FrmProduto_Load(object sender, EventArgs e)
-        {
-            p = new Produto();
-            cboCategoria.DataSource = c.Consultar();
-            cboCategoria.DisplayMember = "categoria";
-            cboCategoria.ValueMember = "id";
-            cboMarca.DataSource = mr.Consultar();
-            cboMarca.DisplayMember = "marca";
-            cboMarca.ValueMember = "id";
-
-            LimpaControles();
-            carregarGrid("");
-
-            dgvProduto.Columns["idCategoria"].Visible = false;
-            dgvProduto.Columns["idMarca"].Visible = false;
-            dgvProduto.Columns["foto"].Visible = false;
-        }
-
-        private void dgvProduto_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboCategoria.SelectedIndex != -1)
-            {
-                DataRowView reg = (DataRowView)cboCategoria.SelectedItem;
-            }
-        }
-
-        private void cboMarca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cboMarca.SelectedIndex != -1)
-            {
-                DataRowView reg = (DataRowView)cboMarca.SelectedItem;
-            }
-        }
-
-        private void picFotoProduto_Click(object sender, EventArgs e)
-        {
-            ofdArquivo.InitialDirectory = "D:/fotos/clientes/";
-            ofdArquivo.FileName = "";
-            ofdArquivo.ShowDialog();
-            picFotoProduto.ImageLocation = ofdArquivo.FileName;
+            dvgProdutos.DataSource = p.Consultar();
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)
@@ -113,13 +56,126 @@ namespace RM_211092.Views
                 descricao = txtDescricao.Text,
                 idCategoria = (int)cboCategoria.SelectedValue,
                 idMarca = (int)cboMarca.SelectedValue,
-                valorVenda = decimal.Parse(txtValorVenda.Text,
-                Estoque = decimal.Parse(txtEstoque.Text))
+                estoque = decimal.Parse(txtEstoque.Text),
+                valorVenda = decimal.Parse(txtValor.Text),
+                foto = picFoto.ImageLocation,
             };
             p.Incluir();
 
-            LimpaControles();
+            limpaControles();
             carregarGrid("");
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+            if (txtID.Text == "") return;
+
+            p = new Produto()
+            {
+                id = int.Parse(txtID.Text),
+                descricao = txtDescricao.Text,
+                idCategoria = (int)cboCategoria.SelectedValue,
+                idMarca = (int)cboMarca.SelectedValue,
+                estoque = decimal.Parse(txtEstoque.Text),
+                valorVenda = decimal.Parse(txtValor.Text),
+                foto = picFoto.ImageLocation,
+            };
+            p.Alterar();
+
+            limpaControles();
+            carregarGrid("");
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limpaControles();
+            carregarGrid("");
+        }
+
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            if (txtID.Text == "") return;
+
+            if (MessageBox.Show("Deseja excluir o produto?", "Exclusão",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                p = new Produto()
+                {
+                    id = int.Parse(txtID.Text)
+                };
+                p.Excluir();
+
+                limpaControles();
+                carregarGrid("");
+            }
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void FrmProduto_Load(object sender, EventArgs e)
+        {
+            ca = new Categoria();
+            cboCategoria.DataSource = ca.Consultar();
+            cboCategoria.DisplayMember = "categoria";
+            cboCategoria.ValueMember = "id";
+
+            m = new Marca();
+            cboMarca.DataSource = m.Consultar();
+            cboMarca.DisplayMember = "marca";
+            cboMarca.ValueMember = "id";
+
+            limpaControles();
+            carregarGrid("");
+
+            dvgProdutos.Columns["idCategoria"].Visible = false;
+            dvgProdutos.Columns["idMarca"].Visible = false;
+            dvgProdutos.Columns["foto"].Visible = false;
+        }
+
+        private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboCategoria.SelectedIndex != -1)
+            {
+                DataRowView reg = (DataRowView)cboCategoria.SelectedItem;
+
+            }
+
+            if (cboMarca.SelectedIndex != -1)
+            {
+                DataRowView reg = (DataRowView)cboMarca.SelectedItem;
+
+            }
+        }
+
+        private void picFoto_Click(object sender, EventArgs e)
+        {
+            ofdArquivo.InitialDirectory = "C:/Users/Usuario/Desktop/211069/fotos/";
+            ofdArquivo.FileName = "";
+            ofdArquivo.ShowDialog();
+            picFoto.ImageLocation = ofdArquivo.FileName;
+        }
+
+        private void dvgProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dvgProdutos.RowCount > 0)
+            {
+                txtID.Text = dvgProdutos.CurrentRow.Cells["id"].Value.ToString();
+                txtDescricao.Text = dvgProdutos.CurrentRow.Cells["descricao"].Value.ToString();
+                cboCategoria.Text = dvgProdutos.CurrentRow.Cells["categoria"].Value.ToString();
+                cboMarca.Text = dvgProdutos.CurrentRow.Cells["marca"].Value.ToString();
+                txtEstoque.Text = dvgProdutos.CurrentRow.Cells["estoque"].Value.ToString();
+                txtValor.Text = dvgProdutos.CurrentRow.Cells["valorVenda"].Value.ToString();
+                picFoto.ImageLocation = dvgProdutos.CurrentRow.Cells["foto"].Value.ToString();
+            }
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            carregarGrid(txtPesquisa.Text);
         }
     }
 }

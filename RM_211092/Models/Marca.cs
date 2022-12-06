@@ -11,8 +11,8 @@ namespace RM_211092.Models
 
         public string marca { get; set; }
 
-     
-       public void Incluir()
+
+        public void Incluir()
         {
             try
             {
@@ -83,5 +83,6 @@ namespace RM_211092.Models
         }
 
     }
+
 
 }

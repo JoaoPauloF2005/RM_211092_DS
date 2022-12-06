@@ -13,7 +13,7 @@ namespace RM_211092.Models
         public DateTime dataNasc { get; set; }
         public double renda { get; set; }
         public string cpf { get; set; }
-        public string foto { get; set; }    
+        public string foto { get; set; }
         public bool venda { get; set; }
 
         public void Incluir()
@@ -22,9 +22,8 @@ namespace RM_211092.Models
             {
                 Banco.Conexao.Open();
                 Banco.Comando = new MySqlCommand
-                                    ("INSERT INTO clientes (nome, idCidade, dataNasc, renda, cpf, foto, venda)" +
-                                     "VALUES (@nome, @idCidade, @dataNasc, @renda, @cpf, @foto, @venda)", Banco.Conexao);
-
+                    ("INSERT INTO clientes (nome, idCidade, dataNasc, renda, cpf, foto, venda) " +
+                    "VALUES (@nome, @idCidade, @dataNasc, @renda, @cpf, @foto, @venda)", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
                 Banco.Comando.Parameters.AddWithValue("@idCidade", idCidade);
                 Banco.Comando.Parameters.AddWithValue("@dataNasc", dataNasc);
@@ -33,22 +32,23 @@ namespace RM_211092.Models
                 Banco.Comando.Parameters.AddWithValue("@foto", foto);
                 Banco.Comando.Parameters.AddWithValue("@venda", venda);
                 Banco.Comando.ExecuteNonQuery();
-                Banco.FecharConexao();
-
+                Banco.Conexao.Close();
             }
+
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         public void Alterar()
         {
             try
             {
-                Banco.AbrirConexao();
-                Banco.Comando = new MySqlCommand("Update clientes set nome = @nome, idCidade = @idCidade, dataNasc = @dataNasc, " +
-                                                  "renda = @renda, cpf = @cpf, foto = @foto, venda = @venda where id = @id", Banco.Conexao);
-
+                Banco.Conexao.Open();
+                Banco.Comando = new MySqlCommand
+                    ("UPDATE clientes SET nome = @nome, idCidade = @idCidade, dataNasc = @dataNasc, " +
+                    "renda = @renda, cpf = @cpf, foto = @foto, venda = @venda where id = @id", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@nome", nome);
                 Banco.Comando.Parameters.AddWithValue("@idCidade", idCidade);
                 Banco.Comando.Parameters.AddWithValue("@dataNasc", dataNasc);
@@ -57,10 +57,10 @@ namespace RM_211092.Models
                 Banco.Comando.Parameters.AddWithValue("@foto", foto);
                 Banco.Comando.Parameters.AddWithValue("@venda", venda);
                 Banco.Comando.Parameters.AddWithValue("@id", id);
-
                 Banco.Comando.ExecuteNonQuery();
-                Banco.FecharConexao();
+                Banco.Conexao.Close();
             }
+
             catch (Exception e)
             {
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -71,12 +71,11 @@ namespace RM_211092.Models
         {
             try
             {
-                Banco.AbrirConexao();
+                Banco.Conexao.Open();
                 Banco.Comando = new MySqlCommand("delete from clientes where id = @id", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@id", id);
                 Banco.Comando.ExecuteNonQuery();
-                Banco.FecharConexao();
-
+                Banco.Conexao.Close();
             }
             catch (Exception e)
             {
@@ -89,13 +88,12 @@ namespace RM_211092.Models
             try
             {
                 Banco.Comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, " +
-                                                  "ci.uf FROM Clientes cl inner join Cidades ci on (ci.id = cl.idCidade) " +
-                                                  "where cl.nome Like ?Nome order by cl.nome", Banco.Conexao);
+                    "ci.uf FROM Clientes cl inner join Cidades ci on (ci.id = cl.idCidade) " +
+                    "where cl.nome like ?Nome order by cl.nome", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@Nome", nome + "%");
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
                 Banco.datTabela = new DataTable();
                 Banco.Adaptador.Fill(Banco.datTabela);
-                Banco.FecharConexao();
                 return Banco.datTabela;
             }
             catch (Exception e)
@@ -104,6 +102,7 @@ namespace RM_211092.Models
                 return null;
             }
         }
-    }
 
+
+    }
 }

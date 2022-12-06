@@ -13,8 +13,7 @@ namespace RM_211092.Views
 {
     public partial class FrmCategoria : Form
     {
-       Categoria c;
-
+        Categoria c;
         public FrmCategoria()
         {
             InitializeComponent();
@@ -30,7 +29,6 @@ namespace RM_211092.Views
         {
             txtIDCategoria.Clear();
             txtDescricao.Clear();
-
             txtPesquisa.Clear();
         }
 
@@ -42,7 +40,6 @@ namespace RM_211092.Views
             };
             dgvCategoria.DataSource = c.Consultar();
         }
-       
         private void btnIncluir_Click(object sender, EventArgs e)
         {
             if (txtDescricao.Text == String.Empty) return;
@@ -63,7 +60,7 @@ namespace RM_211092.Views
         {
             if (txtIDCategoria.Text == String.Empty) return;
 
-            c = new  Categoria()
+            c = new Categoria()
             {
                 id = int.Parse(txtIDCategoria.Text),
                 descricao = txtDescricao.Text,
@@ -72,9 +69,7 @@ namespace RM_211092.Views
 
             LimpaControles();
             carregarGrid("");
-
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             LimpaControles();
@@ -120,16 +115,6 @@ namespace RM_211092.Views
                     txtDescricao.Text = dgvCategoria.CurrentRow.Cells["descricao"].Value.ToString();
                 }
             }
-        }
-
-        private void btnPesquisa_Click(object sender, EventArgs e)
-        {
-            carregarGrid(txtPesquisa.Text);
-        }
-
-        private void btnConsultar_Click(object sender, EventArgs e)
-        {
-            carregarGrid(txtPesquisa.Text);
         }
     }
 }

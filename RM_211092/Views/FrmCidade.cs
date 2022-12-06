@@ -1,7 +1,14 @@
-﻿using System;
+﻿using RM_211092.Models;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using Org.BouncyCastle.Tls;
-using RM_211092.Models;
+
 
 namespace RM_211092.Views
 {
@@ -12,20 +19,20 @@ namespace RM_211092.Views
         {
             InitializeComponent();
         }
-
-        private void cidadeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cidadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmCidade form =  new FrmCidade();
+            FrmCidade form = new FrmCidade();
             form.Show();
         }
-       void LimpaControles()
+
+        void limpaControles()
         {
             txtID.Clear();
             txtNome.Clear();
             txtUF.Clear();
-            txtPesquisa.Clear();    
+            txtPesquisa.Clear();
         }
-    
+
         void carregarGrid(string pesquisa)
         {
             c = new Cidade();
@@ -34,34 +41,27 @@ namespace RM_211092.Views
             };
             dgvCidades.DataSource = c.Consultar();
         }
-         
 
-        private void btnIncluir_Click_1(object sender, EventArgs e)
+        private void btnIncluir_Click(object sender, EventArgs e)
         {
-            if (txtNome.Text == String.Empty) return;
-
-            c = new Cidade()
             {
-                nome = txtNome.Text,
-                uf = txtUF.Text,
-            };
-            c.Incluir();
+                if (txtNome.Text == String.Empty) return;
 
-            LimpaControles();
-            carregarGrid("");
-        }
+                c = new Cidade()
+                {
+                    nome = txtNome.Text,
+                    uf = txtUF.Text
+                };
+                c.Incluir();
 
-        private void dgvCidade_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvCidades.RowCount > 0)
-            {
-                txtID.Text = dgvCidades.CurrentRow.Cells["id"].Value.ToString();
-                txtNome.Text = dgvCidades.CurrentRow.Cells["nome"].Value.ToString();
-                txtUF.Text = dgvCidades.CurrentRow.Cells["uf"].Value.ToString();
+                limpaControles();
+                carregarGrid("");
             }
+
+
         }
 
-        private void btnAlterar_Click_1(object sender, EventArgs e)
+        private void btnAlterar_Click(object sender, EventArgs e)
         {
             if (txtID.Text == String.Empty) return;
 
@@ -71,12 +71,21 @@ namespace RM_211092.Views
                 nome = txtNome.Text,
                 uf = txtUF.Text
             };
+
             c.Alterar();
 
-            LimpaControles();
+            limpaControles();
             carregarGrid("");
         }
-        private void btnExcluir_Click_1(object sender, EventArgs e)
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limpaControles();
+            carregarGrid("");
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
         {
             if (txtID.Text == "") return;
 
@@ -89,32 +98,36 @@ namespace RM_211092.Views
                 };
                 c.Excluir();
 
-                LimpaControles();
+                limpaControles();
                 carregarGrid("");
             }
         }
-        private void btnCancelar_Click_1(object sender, EventArgs e)
-        {
-            LimpaControles();
-            carregarGrid("");
-        }
 
-        private void btnConsultar_Click(object sender, EventArgs e)
-        {
-            carregarGrid(txtPesquisa.Text);
-        }
-
-        private void btnFechar_Click_1(object sender, EventArgs e)
+        private void btnFechar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
+        private void btnPesquisa_Click(object sender, EventArgs e)
+        {
+            carregarGrid(txtPesquisa.Text);
+        }
+
         private void FrmCidade_Load(object sender, EventArgs e)
         {
-            LimpaControles();
+            limpaControles();
             carregarGrid("");
         }
 
-        
+        private void dgvCidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCidades.RowCount > 0)
+            {
+                txtID.Text = dgvCidades.CurrentRow.Cells["id"].Value.ToString();
+                txtNome.Text = dgvCidades.CurrentRow.Cells["nome"].Value.ToString();
+                txtUF.Text = dgvCidades.CurrentRow.Cells["uf"].Value.ToString();
+
+            }
+        }
     }
 }
