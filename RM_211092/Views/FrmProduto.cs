@@ -120,7 +120,7 @@ namespace RM_211092.Views
         {
             ca = new Categoria();
             cboCategoria.DataSource = ca.Consultar();
-            cboCategoria.DisplayMember = "categoria";
+            cboCategoria.DisplayMember = "descricao";
             cboCategoria.ValueMember = "id";
 
             m = new Marca();
@@ -128,12 +128,7 @@ namespace RM_211092.Views
             cboMarca.DisplayMember = "marca";
             cboMarca.ValueMember = "id";
 
-            limpaControles();
-            carregarGrid("");
-
-            dvgProdutos.Columns["idCategoria"].Visible = false;
-            dvgProdutos.Columns["idMarca"].Visible = false;
-            dvgProdutos.Columns["foto"].Visible = false;
+           
         }
 
         private void cboCategoria_SelectedIndexChanged(object sender, EventArgs e)
